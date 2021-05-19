@@ -1,11 +1,18 @@
 describe("Open New Account", () => {
+  it("will clean my test data", () => {
+    cy.visit("http://localhost:8080/parabank/index.htm?ConnType=JDBC");
+    cy.cleanDatabase();
+  });
+
   it("Open Browser and log in", () => {
     cy.visit("http://localhost:8080/parabank/index.htm?ConnType=JDBC");
     cy.title().should("include", "ParaBank");
     cy.get("input[name=username]").type("john");
     cy.get("input[name=password]").type("demo{enter}");
     cy.log("Login successful");
+    // });
 
+    // it("will do API requests", () => {
     cy.request(
       "http://localhost:8080/parabank/services_proxy/bank/customers/12212/accounts"
     ).then((response) => {
