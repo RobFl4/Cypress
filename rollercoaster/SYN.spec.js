@@ -26,12 +26,12 @@
 //  •	Zijn de overzichtrubrieken c.q. attributen opgenomen in het gegevensmodel?
 //  •	Voldoen de beschreven overzichtlay-outs aan de standaards?
 
-context("Elementaire Vergelijkingentest (EVT) met Beslispunten: MCDC", () => {
+context("Syntactische test (Syntactic test)", () => {
   beforeEach(() => {
     cy.visit("https://robfl4.github.io/ITestMyCase/executeRollercoaster.html");
   });
 
-  it("TC-1: vul alfanumerieke tekens in", () => {
+  it("TC-1: enter alphanumeric characters", () => {
     cy.get('[data-testid="length"]').type("donald");
     cy.get('[data-testid="weight"]').type("duck");
     cy.get('[data-testid="check-button"]')
@@ -47,7 +47,7 @@ context("Elementaire Vergelijkingentest (EVT) met Beslispunten: MCDC", () => {
     cy.get("#message").contains("Voer opnieuw het groepsgewicht in!");
   });
 
-  it("TC-2: vul alfanumerieke tekens in zoals - of +)", () => {
+  it("TC-2: enter alphanumeric characters such as - or +)", () => {
     cy.get('[data-testid="length"]').type("--");
     cy.get('[data-testid="weight"]').type("++");
     cy.get('[data-testid="check-button"]')
@@ -63,7 +63,7 @@ context("Elementaire Vergelijkingentest (EVT) met Beslispunten: MCDC", () => {
     cy.get("#message").contains("Voer opnieuw het groepsgewicht in!");
   });
 
-  it("TC-3: Voer een idioot lang getal in", () => {
+  it("TC-3: Enter quite a long value", () => {
     cy.get('[data-testid="length"]').type(
       "121111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
     );
@@ -76,7 +76,7 @@ context("Elementaire Vergelijkingentest (EVT) met Beslispunten: MCDC", () => {
     );
   });
 
-  it("TC-4: Voer net iets te weinig / voldoende cijfers achter de komma in", () => {
+  it("TC-4: Enter just a little too little / sufficient digits after the decimal point", () => {
     cy.get('[data-testid="length"]').type("119.99999999999999");
     cy.get('[data-testid="weight"]').type("300.0000000000001");
     cy.get('[data-testid="check-button"]')
@@ -99,7 +99,7 @@ context("Elementaire Vergelijkingentest (EVT) met Beslispunten: MCDC", () => {
     );
   });
 
-  it("TC-5: gebruik van decimal point en komma", () => {
+  it("TC-5: use of decimal point and comma", () => {
     cy.get('[data-testid="length"]').type("119,99");
     cy.get('[data-testid="weight"]').type("200.01");
     cy.get('[data-testid="check-button"]')
@@ -110,7 +110,7 @@ context("Elementaire Vergelijkingentest (EVT) met Beslispunten: MCDC", () => {
     );
   });
 
-  it("TC-6: vul een leeg veld in", () => {
+  it("TC-6: fill in an empty field", () => {
     cy.get('[data-testid="length"]');
     cy.get('[data-testid="weight"]');
     cy.get('[data-testid="check-button"]')
